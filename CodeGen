@@ -1,0 +1,16 @@
+from transformers import GPT3Tokenizer, GPT3Model
+
+# Initialize the model and tokenizer
+model = GPT3Model.from_pretrained("gpt3")
+tokenizer = GPT3Tokenizer.from_pretrained("gpt3")
+
+# Function to generate code
+def generate_code(prompt):
+    inputs = tokenizer(prompt, return_tensors="pt")
+    outputs = model.generate(**inputs, max_length=150)
+    return tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+# Example usage
+prompt = "Write a Python function to calculate the factorial of a number."
+generated_code = generate_code(prompt)
+print(generated_code)

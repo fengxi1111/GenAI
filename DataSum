@@ -1,0 +1,13 @@
+# Pseudo code for automating data entry using GenAI
+def auto_fill_form(form_template, data):
+    filled_form = {}
+    for field in form_template:
+        prompt = f"Fill in the {field} for the form with data: {data}"
+        filled_form[field] = generate_response(prompt)
+    return filled_form
+
+# Example usage
+form_template = ["Name", "Address", "Phone Number"]
+data = "John Doe, 123 Main St, 555-1234"
+filled_form = auto_fill_form(form_template, data)
+print(filled_form)

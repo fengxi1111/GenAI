@@ -1,0 +1,14 @@
+from transformers import pipeline
+
+# Load conversational pipeline
+chatbot = pipeline("conversational", model="microsoft/DialoGPT-medium")
+
+# Function to generate chatbot response
+def chatbot_response(prompt):
+    response = chatbot(prompt)
+    return response.generated_responses[-1]
+
+# Example usage
+prompt = "What are your business hours?"
+response = chatbot_response(prompt)
+print(response)
